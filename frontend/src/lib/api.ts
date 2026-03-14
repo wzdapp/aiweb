@@ -112,6 +112,91 @@ export const api = {
     })
     return response.json()
   },
+
+  // Leads
+  getLeads: async (params?: { status?: string }) => {
+    const query = new URLSearchParams(params as any).toString()
+    const response = await fetch(`${API_BASE_URL}/leads${query ? '?' + query : ''}`)
+    return response.json()
+  },
+
+  getLeadStats: async () => {
+    const response = await fetch(`${API_BASE_URL}/leads/stats`)
+    return response.json()
+  },
+
+  createLead: async (data: any) => {
+    const response = await fetch(`${API_BASE_URL}/leads`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+    return response.json()
+  },
+
+  // Orders
+  getOrders: async () => {
+    const response = await fetch(`${API_BASE_URL}/orders`)
+    return response.json()
+  },
+
+  getOrder: async (id: string) => {
+    const response = await fetch(`${API_BASE_URL}/orders/${id}`)
+    return response.json()
+  },
+
+  createOrder: async (data: any) => {
+    const response = await fetch(`${API_BASE_URL}/orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+    return response.json()
+  },
+
+  // Analytics
+  getOverview: async () => {
+    const response = await fetch(`${API_BASE_URL}/analytics/overview`)
+    return response.json()
+  },
+
+  getSales: async (params?: { period?: string }) => {
+    const query = new URLSearchParams(params as any).toString()
+    const response = await fetch(`${API_BASE_URL}/analytics/sales${query ? '?' + query : ''}`)
+    return response.json()
+  },
+
+  // Qiniu Storage
+  getUploadToken: async (key?: string) => {
+    const query = key ? `?key=${key}` : ''
+    const response = await fetch(`${API_BASE_URL}/qiniu/upload-token${query}`)
+    return response.json()
+  },
+
+  uploadFile: async (file: File, key: string) => {
+    const formData = new FormData()
+    formData.append('file', file)
+    formData.append('key', key)
+    formData.append('mimeType', file.type)
+
+    const response = await fetch(`${API_BASE_URL}/qiniu/upload`, {
+      method: 'POST',
+      body: formData,
+    })
+    return response.json()
+  },
+
+  deleteFile: async (key: string) => {
+    const response = await fetch(`${API_BASE_URL}/qiniu/file/${key}`, {
+      method: 'DELETE',
+    })
+    return response.json()
+  },
+
+  getPrivateUrl: async (key: string, expires: number = 3600) => {
+    const response = await fetch(`${API_BASE_URL}/qiniu/private-url/${key}?expires=${expires}`)
+    return response.json()
+  },
 }
 
 export default api

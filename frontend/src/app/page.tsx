@@ -12,16 +12,20 @@ export default function Home() {
         <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl font-bold mb-6">
-              Global Brand & Digital Expo
+              品牌出海展会 + 数字化 B2B 平台
             </h1>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              你的品牌出海展会 + 数字化B2B独立站一体化解决方案
+              四大核心功能：产品展示、客户管理、线索管理、数据看板
             </p>
             <div className="flex justify-center gap-4">
-              <Button size="lg">立即开始</Button>
-              <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-                了解更多
-              </Button>
+              <Link href="/products">
+                <Button size="lg">立即开始</Button>
+              </Link>
+              <Link href="/dashboard">
+                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+                  查看演示
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -30,32 +34,40 @@ export default function Home() {
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">
-              核心功能
+              四大核心功能
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-4">🏭</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <Link href="/products" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                <div className="text-4xl mb-4">📦</div>
                 <h3 className="text-xl font-bold mb-2">产品展示</h3>
                 <p className="text-gray-600">
                   完整的产品展示系统，支持多语言、多规格、多价格
                 </p>
-              </div>
+              </Link>
               
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-                <div className="text-4xl mb-4">🎪</div>
-                <h3 className="text-xl font-bold mb-2">展会管理</h3>
+              <Link href="/customers" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                <div className="text-4xl mb-4">👥</div>
+                <h3 className="text-xl font-bold mb-2">客户管理</h3>
                 <p className="text-gray-600">
-                  智能展会管理，线索追踪，数据可视化
+                  全方位客户管理，支持分级分类、跟进记录、状态追踪
                 </p>
-              </div>
+              </Link>
               
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <Link href="/leads" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
+                <div className="text-4xl mb-4">🎯</div>
+                <h3 className="text-xl font-bold mb-2">线索管理</h3>
+                <p className="text-gray-600">
+                  智能线索追踪，评分系统，自动分配，提高转化率
+                </p>
+              </Link>
+              
+              <Link href="/dashboard" className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow cursor-pointer">
                 <div className="text-4xl mb-4">📊</div>
-                <h3 className="text-xl font-bold mb-2">数据分析</h3>
+                <h3 className="text-xl font-bold mb-2">数据看板</h3>
                 <p className="text-gray-600">
                   实时数据看板，ROI精准计算，智能洞察
                 </p>
-              </div>
+              </Link>
             </div>
           </div>
         </section>

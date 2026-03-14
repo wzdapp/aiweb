@@ -13,6 +13,7 @@ import { MarketingModule } from './modules/marketing/marketing.module';
 import { AnalyticsModule } from './modules/analytics/analytics.module';
 import { MessagesModule } from './modules/messages/messages.module';
 import { ReviewsModule } from './modules/reviews/reviews.module';
+import { QiniuModule } from './modules/qiniu/qiniu.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { ReviewsModule } from './modules/reviews/reviews.module';
     AnalyticsModule,
     MessagesModule,
     ReviewsModule,
+    QiniuModule,
   ],
 })
 export class AppModule {}
