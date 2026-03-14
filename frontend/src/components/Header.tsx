@@ -18,6 +18,9 @@ export default function Header() {
             <Link href="/exhibitions" className="text-gray-700 hover:text-primary-600">
               Exhibitions
             </Link>
+            <Link href="/customers" className="text-gray-700 hover:text-primary-600">
+              Customers
+            </Link>
             <Link href="/leads" className="text-gray-700 hover:text-primary-600">
               Leads
             </Link>
