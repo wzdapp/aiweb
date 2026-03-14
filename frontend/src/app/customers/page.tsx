@@ -31,7 +31,7 @@ export default function CustomersPage() {
     { id: 'lead', name: '潜在客户' },
     { id: 'prospect', name: '意向客户' },
     { id: 'customer', name: '成交客户' },
-    { id: 'inactive', name: ' inactive', name: '未活跃' },
+    { id: 'inactive', name: '未活跃' },
   ]
 
   const filteredCustomers = selectedStatus === 'all' 

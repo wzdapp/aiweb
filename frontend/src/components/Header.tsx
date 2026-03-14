@@ -1,8 +1,16 @@
+'use client'
+
 import Link from 'next/link'
 import { useAppStore } from '@/store/useAppStore'
+import { useEffect, useState } from 'react'
 
 export default function Header() {
   const { user, setUser } = useAppStore()
+  const [mounted, setMounted] = useState(false)
+  
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   
   return (
     <header className="border-b bg-white sticky top-0 z-50">
