@@ -8,6 +8,9 @@ import { ExhibitionsModule } from './modules/exhibitions/exhibitions.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { LeadsModule } from './modules/leads/leads.module';
 import { OrdersModule } from './modules/orders/orders.module';
+import { OrderItemsModule } from './modules/order-items/order-items.module';
+import { MarketingModule } from './modules/marketing/marketing.module';
+import { AnalyticsModule } from './modules/analytics/analytics.module';
 
 @Module({
   imports: [
@@ -33,6 +36,9 @@ import { OrdersModule } from './modules/orders/orders.module';
     AuthModule,
     LeadsModule,
     OrdersModule,
+    OrderItemsModule,
+    MarketingModule,
+    AnalyticsModule,
   ],
 })
 export class AppModule {}
