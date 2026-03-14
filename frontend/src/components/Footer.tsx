@@ -6,42 +6,44 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-lg font-bold mb-4">品牌出海平台</h3>
+            <h3 className="text-lg font-bold mb-4">Brand Expo</h3>
             <p className="text-gray-400">
-              品牌出海展会 + 数字化 B2B 一体化解决方案
+              Your trusted partner for brand exhibitions and digital B2B solutions.
             </p>
           </div>
           
           <div>
-            <h4 className="font-bold mb-4">核心功能</h4>
+            <h4 className="font-bold mb-4">Products</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/products">产品展示</Link></li>
-              <li><Link href="/customers">客户管理</Link></li>
-              <li><Link href="/leads">线索管理</Link></li>
-              <li><Link href="/dashboard">数据看板</Link></li>
+              <li><Link href="/products">All Products</Link></li>
+              <li><Link href="/categories">Categories</Link></li>
+              <li><Link href="/new">New Arrivals</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold mb-4">关于</h4>
+            <h4 className="font-bold mb-4">Company</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/about">关于我们</Link></li>
-              <li><Link href="/contact">联系我们</Link></li>
-              <li><Link href="/help">帮助中心</Link></li>
+              <li><Link href="/about">About Us</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
+              <li><Link href="/careers">Careers</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-bold mb-4">法律</h4>
+            <h4 className="font-bold mb-4">Support</h4>
             <ul className="space-y-2 text-gray-400">
-              <li><Link href="/privacy">隐私政策</Link></li>
-              <li><Link href="/terms">服务条款</Link></li>
+              <li><Link href="/help">Help Center</Link></li>
+              <li><Link href="/faq">FAQ</Link></li>
+              <li><Link href="/files">File Manager</Link></li>
+              <li><Link href="/privacy">Privacy Policy</Link></li>
+              <li><Link href="/terms">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2026 品牌出海平台. All rights reserved.</p>
+          <p>&copy; 2026 Global Brand & Digital Expo. All rights reserved.</p>
         </div>
       </div>
     </footer>
