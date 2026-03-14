@@ -1,0 +1,6 @@
+# Global Brand & Digital Expo
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://globalbrandexpo.com/sitemap.xml
