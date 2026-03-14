@@ -4,6 +4,21 @@ import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import * as bcrypt from 'bcrypt';
 
+interface CreateUserDto {
+  username: string;
+  email: string;
+  password: string;
+  role?: string;
+}
+
+interface UpdateUserDto {
+  username?: string;
+  email?: string;
+  password?: string;
+  role?: string;
+  isActive?: boolean;
+}
+
 @Injectable()
 export class UsersService {
   constructor(
@@ -11,11 +26,13 @@ export class UsersService {
     private userRepository: Repository<User>,
   ) {}
 
-  async create(createUserDto: { username: string; email: string; password: string; role?: string }) {
+  async create(createUserDto: CreateUserDto) {
     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
     const user = this.userRepository.create({
-      ...createUserDto,
+      username: createUserDto.username,
+      email: createUserDto.email,
       passwordHash: hashedPassword,
+      role: (createUserDto.role || 'viewer') as 'admin' | 'manager' | 'sales' | 'viewer',
     });
     return this.userRepository.save(user);
   }
@@ -43,11 +60,11 @@ export class UsersService {
     return this.userRepository.findOne({ where: { email } });
   }
 
-  async update(id: number, updateUserDto: Partial<User>) {
+  async update(id: number, updateUserDto: UpdateUserDto) {
     const user = await this.findOne(id);
     
     if (updateUserDto.password) {
-      updateUserDto.passwordHash = await bcrypt.hash(updateUserDto.password, 10);
+      (user as any).passwordHash = await bcrypt.hash(updateUserDto.password, 10);
       delete updateUserDto.password;
     }
     
@@ -58,5 +75,9 @@ export class UsersService {
   async remove(id: number) {
     const user = await this.findOne(id);
     return this.userRepository.remove(user);
+  }
+
+  async findByUsername(username: string) {
+    return this.userRepository.findOne({ where: { username } });
   }
 }
